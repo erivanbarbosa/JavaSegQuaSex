@@ -1,0 +1,6 @@
+
+public class CalculadorSalario {
+	public static void main(String[] args ) {
+		
+	}
+}

@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CaixaEletronico {
+
+	
+	public static void main(String[] args ) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Bem vindo ao caixa eletronico!");
+				
+		Conta conta1 = new Conta();
+		conta1.setSaldo(1000.00);
+		
+		System.out.println("O seu saldo é igual a: " + conta1.verSaldo());
+		
+		double valorDeposito = input.nextDouble();
+		conta1.depositar(valorDeposito);
+		
+		System.out.println("Valor do deposito: " + valorDeposito);
+		System.out.println("O seu saldo após o deposito é igual a: " + conta1.verSaldo());
+		
+		double valorSaque = input.nextDouble();
+		conta1.sacar(valorSaque);
+		
+		System.out.println("Valor do saque: " + valorSaque);
+		System.out.println("O seu saldo após o saque é igual a: " + conta1.verSaldo());
+	}
+}

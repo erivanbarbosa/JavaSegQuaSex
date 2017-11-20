@@ -1,0 +1,11 @@
+
+public class CaixaEletronico {
+	public static void main(String[] args ) {
+		System.out.println("Bem vindo ao caixa eletronico!");
+		
+		Conta conta1 = new Conta();
+		
+		System.out.println("O seu saldo é igual a: " + conta1.verSaldo());
+		
+	}
+}

@@ -1,0 +1,20 @@
+
+public class Conta {
+	private double saldo;
+	
+	
+	public double verSaldo() {
+		return getSaldo();
+	}
+	
+	
+	
+	
+	public double getSaldo() {
+		return saldo;
+	}
+	
+	public void setSaldo(double valor) {
+		saldo = valor;
+	}
+}

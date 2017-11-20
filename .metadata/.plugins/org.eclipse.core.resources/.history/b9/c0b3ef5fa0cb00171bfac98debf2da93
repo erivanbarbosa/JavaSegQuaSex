@@ -1,0 +1,11 @@
+
+public class JogadorDeDados {
+
+	public static void main(String[] args) {
+		Dado dado = new Dado(6);
+		
+		System.out.println("Resultado igual: " + dado.rolar());
+
+	}
+
+}

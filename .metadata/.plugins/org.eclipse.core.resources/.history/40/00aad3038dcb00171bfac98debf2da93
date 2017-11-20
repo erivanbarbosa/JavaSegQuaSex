@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class CalculadorSalario {
+	public static void main(String[] args ) {
+		int horasTrabalhadas;
+		double valorHoraTrabalhada;
+		double percentualDesconto, totalDescontoSalario;
+		double salarioBruto, salarioLiquido;
+		
+		Scanner leitor = new Scanner(System.in);
+
+
+	}
+}

@@ -1,0 +1,11 @@
+public class ApresentadorBarraN { 
+	
+	public static void main(String[] args ) { 
+		
+		int num = 15;
+		
+		//Escreve o texto 'Hello World!" na tela do usuário
+		System.out.printf(" Hello \n World! &i", num);
+		System.out.println("!");
+	}
+}
