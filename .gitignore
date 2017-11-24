@@ -23,3 +23,16 @@
 .settings/
 /.metadata/
 /.recommenders/
+
+.metadata
+.recommenders
+.metadata/.plugins/org.eclipse.core.resources/.projects/AulaDois/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/AulaDois/.markers.snap
+*.snap
+*.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/ATM/.markers.snap
+*.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/ATM/.markers.snap
+*.fdx
+.metadata/.plugins/org.eclipse.core.resources/.projects/ATM/.markers.snap
+.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/6.png
