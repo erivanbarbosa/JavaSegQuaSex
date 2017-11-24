@@ -1,10 +1,14 @@
 
 public class Conta {
 	private double saldo;
+	private String numero;
+	private String senha;
 	
 	
-	public Conta(double valorInicial) {
+	public Conta(double valorInicial, String numero, String senha) {
 		saldo = valorInicial;
+		this.numero = numero;
+		this.senha = senha;
 	}
 	
 	public double verSaldo() {
@@ -34,5 +38,23 @@ public class Conta {
 	public void setSaldo(double valor) {
 		saldo = valor;
 	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	
 	
 } //fim da classe conta

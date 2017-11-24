@@ -4,14 +4,43 @@ public class CaixaEletronico {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		String numeroConta = null;
+		String senhaConta = null;
 		int opcao;
+		Conta conta = null;
 
+		
+		Conta[] contas = new Conta[10000000];
+		
+		for(int i = 0; i < contas.length; i++ ) {
+			int saldo = ((i + 2) * 100 );
+			String numero = "0000" + i;
+			String senha = i + "000";
+			
+			
+			contas[i] = new Conta(saldo, numero, senha);
+		}
+		
+		
+
+		
 		System.out.println("Bem vindo ao caixa eletronico!");
-
-		System.out.println("Digite o valor inicial da conta: ");
-		double valorInicial = input.nextDouble();
-		Conta conta1 = new Conta(valorInicial);
-
+		
+		System.out.println("Informe o numero da sua conta: ");
+		numeroConta = input.nextLine();
+		System.out.println("Informe a senha: ");
+		senhaConta = input.nextLine();
+		
+		for(int i = 0; i < contas.length; i++ ) {
+			if( contas[i].getNumero().equals(numeroConta) ) {
+				if(contas[i].getSenha().equals(senhaConta) ) {
+					conta = contas[i];
+				}
+			}
+		}
+		
+		if(conta != null ) {
+		
 		do {
 		
 		System.out.println();
@@ -28,19 +57,19 @@ public class CaixaEletronico {
 		
 		switch (opcao) {
 		case 1:
-			System.out.println("O seu saldo é igual a: " + conta1.verSaldo());
+			System.out.println("O seu saldo é igual a: " + conta.verSaldo());
 			break;
 		case 2:
 			System.out.println("Digite o valor do Depósito: ");
 			double valorDeposito = input.nextDouble();
-			conta1.depositar(valorDeposito);
+			conta.depositar(valorDeposito);
 
 			System.out.println("Valor do deposito: " + valorDeposito);
 			break;
 		case 3:
 			System.out.println("Digite o valor do saque: ");
 			double valorSaque = input.nextDouble();
-			int resultado = conta1.sacar(valorSaque);
+			int resultado = conta.sacar(valorSaque);
 			if (resultado == 0) {
 				System.out.println("O saque foi realizado com sucesso!");
 			} else {
@@ -59,6 +88,9 @@ public class CaixaEletronico {
 		
 		} while(opcao != 0 );
 
-		
+		}
+		else {
+			System.out.println("A conta ou a senha informado está incorreta!");
+		}
 	}
 }
