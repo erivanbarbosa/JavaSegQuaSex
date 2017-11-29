@@ -6,7 +6,8 @@ public class Conta {
 	
 	
 	public Conta(double valorInicial, String numero, String senha) {
-		saldo = valorInicial;
+		
+		saldo = (valorInicial >= 0) ? valorInicial : 0.0;
 		this.numero = numero;
 		this.senha = senha;
 	}

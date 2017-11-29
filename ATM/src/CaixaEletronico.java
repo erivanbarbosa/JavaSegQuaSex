@@ -10,10 +10,10 @@ public class CaixaEletronico {
 		Conta conta = null;
 
 		
-		Conta[] contas = new Conta[10000000];
+		Conta[] contas = new Conta[1000];
 		
 		for(int i = 0; i < contas.length; i++ ) {
-			int saldo = ((i + 2) * 100 );
+			int saldo = ((i + 2) * -100 );
 			String numero = "0000" + i;
 			String senha = i + "000";
 			
