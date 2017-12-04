@@ -13,4 +13,12 @@
 <fullyQualifiedTypeName name="exemploCarro.Aviao"/>
 <fullyQualifiedTypeName name="dominio.Conta"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="threeway.projeto.modelo.util.UtilData"/>
+<fullyQualifiedTypeName name="threeway.projeto.modelo.Transacao"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="threeway.projeto.modelo.Conta"/>
+<fullyQualifiedTypeName name="threeway.projeto.modelo.enums.EnumTipoTransacao"/>
 </qualifiedTypeNameHistroy>
