@@ -1,9 +1,0 @@
-
-public class CaixaEletronico {
-	public static void main(String[] args ) {
-		System.out.println("Bem vindo ao caixa eletronico!");
-		
-		System.out.println("Escolha uma operação: ");
-		System.out.println("1 - Saldo");
-	}
-}

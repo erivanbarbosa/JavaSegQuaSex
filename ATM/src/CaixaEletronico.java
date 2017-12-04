@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import dominio.Conta;
+
 public class CaixaEletronico {
 
 	public static void main(String[] args) {

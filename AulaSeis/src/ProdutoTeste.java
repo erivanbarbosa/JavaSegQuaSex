@@ -17,8 +17,6 @@ public class ProdutoTeste {
 		System.out.println("Quantidade: " + produto2.getQuantidade());
 		System.out.println("Valor total: " + produto2.calcularPrecoTotal());
 		
-		
-
 	}
 
 }

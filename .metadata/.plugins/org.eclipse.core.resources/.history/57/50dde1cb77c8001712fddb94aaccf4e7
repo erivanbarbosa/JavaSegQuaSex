@@ -1,8 +1,0 @@
-public class ApresentadorBarraN { 
-	
-	public static void main(String[] args ) { 
-		
-		//Escreve o texto 'Hello World!" na tela do usuário
-		System.out.println(" Hello \n World!");
-	}
-}

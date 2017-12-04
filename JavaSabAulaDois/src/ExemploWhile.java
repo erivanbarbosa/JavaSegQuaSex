@@ -1,0 +1,16 @@
+
+public class ExemploWhile {
+
+	public static void main(String[] args) {
+		int contador = 100;
+		
+		while(contador < 10 ) {
+			System.out.println(contador);
+			contador++;
+		}
+
+		System.out.println("Fim do programa");
+		
+	}
+
+}
