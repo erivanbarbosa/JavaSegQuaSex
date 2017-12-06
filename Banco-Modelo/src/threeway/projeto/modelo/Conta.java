@@ -57,4 +57,14 @@ public class Conta {
 		this.dataAbertura = dataAbertura;
 	}
 
+	public ArrayList getMovimento() {
+		return movimento;
+	}
+
+	public void setMovimento(ArrayList movimento) {
+		this.movimento = movimento;
+	}
+
+	
+	
 }
