@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+body {
+	background-image: url(../imagens/background.jpg);
+	color: #333;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	height: 100%;
+}
+
+header {
+	position: relative;
+	background-image: url("../imagens/header-back.jpg");
+	opacity: 0.8;
+	padding: 20px 0;
+	margin-top: 0px !important;
+	width: 100%;
+	min-heigth: 100%;
+}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	width: auto;
+	min-heigth: 100%;
+}
+
+#logo-livraria {
+	width: 300px;
+	position: relative;
+	padding: 10px;
+	margin: 10px;
+}
+
+.menu-opcoes {
+	position: absolute;
+	bottom: -10px;
+	right: 20px;
+}
+
+.menu-opcoes ul {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.menu-opcoes ul li {
+	display: inline;
+	margin-left: 20px;
+}
+
+.menu-opcoes a {
+	color: #003366;
+}

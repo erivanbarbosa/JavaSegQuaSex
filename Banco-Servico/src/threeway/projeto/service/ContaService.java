@@ -4,57 +4,84 @@ import threeway.projeto.modelo.Conta;
 import threeway.projeto.modelo.Transacao;
 import threeway.projeto.modelo.enums.EnumTipoTransacao;
 import threeway.projeto.modelo.util.UtilData;
+import threeway.projeto.service.excecoes.SaldoInsuficienteException;
 
 public class ContaService {
 
-	// Adiciona o valor informado na conta informada
 	public void depositar(Conta contaDestino, double valor) {
+
+		// credita na conta e debita no caixa
 		contaDestino.setSaldo(contaDestino.getSaldo() + valor);
-		
-		registrarHistoricoTransacao(null, contaDestino, valor, 
-				"Deposito na conta", EnumTipoTransacao.DEPOSITO);
+
+		this.historicoTransacao(null, contaDestino, valor, "deposito na conta " + contaDestino.getNumero(), EnumTipoTransacao.DEPOSITO);
 	}
 
-	// Debita o valor informado na conta informada
-	public void sacar(Conta contaSaque, double valor) {
-		contaSaque.setSaldo(contaSaque.getSaldo() - valor);
-		
-		registrarHistoricoTransacao(contaSaque, null, valor,
-				"Saque da conta", EnumTipoTransacao.SAQUE);
-	}
+	public void sacar(Conta contaSaque, double valor) throws SaldoInsuficienteException {
 
-	// Debita o valor informado na conta de origem
-	// e adiciona o valor informado na conta de destino
-	public void transferir(Conta contaSaque, double valor, Conta contaDestino) {
-		this.transferir(contaSaque, valor, contaDestino, 0.0);
-		
-		registrarHistoricoTransacao(contaSaque, contaDestino, valor,
-				"Transferencia entre contas", EnumTipoTransacao.TRANSFERENCIA);
-	}
+		if (contaSaque.getSaldo() - valor >= 0) {
+			// debita na conta e credita no caixa
+			contaSaque.setSaldo(contaSaque.getSaldo() - valor);
 
-	public void transferir(Conta contaSaque, double valor, Conta contaDestino,
-			double limite) {
+			this.historicoTransacao(null, contaSaque, valor, "saque na conta " + contaSaque.getNumero(), EnumTipoTransacao.DEPOSITO);
 
-		if (contaSaque.getSaldo() + limite < valor) {
-			System.out.println("Saldo insuficiente!");
 		} else {
-			this.sacar(contaSaque, valor);
-			this.depositar(contaDestino, valor);
+			
+			throw new SaldoInsuficienteException();
+		}
+	}
+
+	// método sobrecarregado, transfere dados desta conta (this) para outra
+	public boolean transferir(Conta contaSaque, double valor, Conta contaDestino) throws SaldoInsuficienteException {
+
+		return transferir(contaSaque, valor, contaDestino, "transferencia para conta " + contaDestino.getNumero());
+	}
+
+	// método sobrecarregado, transfere valor desta conta (this) para outra conta e registra a transação
+	public boolean transferir(Conta contaSaque, double valor, Conta contaDestino, String descr) throws SaldoInsuficienteException {
+
+		if (contaSaque.getSaldo() - valor >= 0) {
+
+			this.debito(contaSaque, valor);
+
+			this.credito(contaDestino, valor);
+
+			this.historicoTransacao(contaSaque, contaDestino, valor, descr, EnumTipoTransacao.TRANSFERENCIA);
+
+			return true;
+
+		} else {
+
+			throw new SaldoInsuficienteException();
 		}
 
 	}
 
-	void registrarHistoricoTransacao(Conta contaDebito, Conta contaCredito,
-			double valor, String descricao, EnumTipoTransacao tipoTransacao) {
+	// subtrai valor do saldo
+	protected void debito(Conta contaOperacao, double valor) {
 
-		Transacao transacao = new Transacao(UtilData.data(), contaDebito,
-				contaCredito, valor, descricao, tipoTransacao);
+		contaOperacao.setSaldo(contaOperacao.getSaldo() - valor);
 
-		if(contaDebito != null ) {
-			contaDebito.getMovimento().add(transacao);
-		}
-		if(contaCredito != null ) {
-			contaCredito.getMovimento().add(transacao);
-		}
 	}
+
+	// adiciona valor ao saldo
+	protected void credito(Conta contaOperacao, double valor) {
+
+		contaOperacao.setSaldo(contaOperacao.getSaldo() + valor);
+
+	}
+
+	// cria um objeto transação e registra adicionando no movimento da conta
+	protected void historicoTransacao(Conta contaDebito, Conta contaCredito, double valor, String descr, EnumTipoTransacao tipoTransacao) {
+
+		Transacao transacao = new Transacao(UtilData.data(), contaDebito, contaCredito, valor, descr, tipoTransacao);
+
+		if (contaDebito != null) {
+
+			contaDebito.getTransacoes().add(transacao);
+
+		}
+
+		contaCredito.getTransacoes().add(transacao);
+	}
+
 }
